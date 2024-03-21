@@ -1,0 +1,7 @@
+.form-container {
+    display: flex;
+    justify-content: space-around;
+}
+.form-container form {
+    margin: 10px;
+}

@@ -1,0 +1,64 @@
+{{define "accueil"}}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/accueil.css">
+</head>
+
+<body>
+
+    <!-- Titre -->
+    <div class="haut">
+        <h1>Royale API</h1>
+        <img src="/static/images/logo.png">
+        <button class="cards">cards</button>
+        <button class="favoris">favoris</button>
+    </div>
+
+    <div class="all-recherche">
+        <div class="form-container">
+            <div class="unique-form">
+                <p>Rechercher un joueur</p>
+                <form action="/player" method="POST">
+                    <input type="text" name="tag">
+                    <button type="submit">Rechercher</button>
+                </form>
+            </div>
+            <div class="unique-form">
+                <p>Rechercher un clan (Tag)</p>
+                <form action="/clan" method="POST">
+                    <input type="text" name="tag">
+                    <button type="submit">Rechercher</button>
+                </form>
+            </div>
+
+            <div class="unique-form">
+                <p>Rechercher un clan (Nom)</p>
+                <form action="/search_clan" method="POST">
+                    <input type="text" name="nom">
+                    <button type="submit">Rechercher</button>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        const cards = document.querySelector('.cards');
+        const favoris = document.querySelector('.favoris');
+
+        cards.addEventListener('click', () => {
+            window.location.href = '/cards';
+        });
+
+        favoris.addEventListener('click', () => {
+            window.location.href = '/favoris';
+        });
+    </script>
+
+</body>
+
+</html>
+{{end}}

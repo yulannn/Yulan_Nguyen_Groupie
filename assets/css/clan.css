@@ -1,0 +1,400 @@
+@font-face {
+    font-family: 'MedievalSharp';
+    src: url('../font/MedievalSharp.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'MedievalSharp', sans-serif;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.app-container {
+    background-color: #e9eef2;
+    min-height: 100vh;
+    padding: 10vw 20vw;
+    background-image: url(/static/images/bon.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.app-header {
+    background-color: #535E70;
+    border-radius: 10px;
+    text-align: center;
+    height: 12rem;
+}
+
+
+.page-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+
+}
+
+.page-link {
+    text-decoration: none;
+    background-color: #ffffff;
+    color: black;
+    padding: 0.5rem 1rem;
+
+}
+
+a.page-link {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.titre-content {
+    padding: 0.3rem;
+    position: relative;
+    background-color: #E6EDF1;
+    border-radius: 10px;
+    height: 4rem;
+    font-size: 0.5rem;
+}
+
+
+
+.liste-container {
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: #535E70;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+
+
+.member-filter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1rem;
+}
+
+#filtre {
+    padding: 0.2rem 1rem;
+    margin: 1rem;
+}
+
+.filter-panel {
+    display: none;
+    position: relative;
+    height: 14rem;
+    padding: 1.5rem;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+    background-color: #535E70;
+    border-radius: 10px;
+}
+
+
+.filter-control {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.right-filter {
+    display: flex;
+    gap: 3rem;
+}
+
+.filter-control button {
+    width: 30px;
+    height: 30px;
+    background-image: linear-gradient(to bottom, #007bff, #0056b3);
+}
+
+.filter-control input {
+    width: 3rem;
+    text-align: center;
+}
+
+#apply-filters {
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.trophies-filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+
+}
+
+.location-filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.right-trophies-filter button {
+    width: 30px;
+    height: 30px;
+    background-image: linear-gradient(to bottom, #007bff, #0056b3);
+}
+
+.right-trophies-filter input {
+    width: 6rem;
+    text-align: center;
+}
+
+
+.titre-content h1 {
+    color: #7D8A9E;
+    font-size: 1rem;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+
+.title-white {
+    background-color: #ffffff;
+    width: 99.5%;
+    height: 60%;
+    margin: 0 auto;
+    border-radius: 10px 10px 0 0;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+
+#search-clan {
+    flex: 1;
+    padding: 0.5rem 8rem;
+    margin-right: 0.5rem;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+#search-button {
+    padding: 0.5rem 2rem;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom, #007bff, #0056b3);
+    box-shadow: 0 3px #003974;
+    text-shadow: 0 1px #003974;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+#advanced-search {
+    background-color: #6c757d;
+}
+
+.clan-list {
+    margin: 0.5rem 0;
+    width: 90%;
+}
+
+
+.clan-item {
+    background-color: #CBD6EB;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    box-shadow: 3px 3px 3px #003974;
+}
+
+.background-white {
+    background-color: #DDE7F4;
+    width: 100%;
+    height: 2.5rem;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.clan-info h2 {
+    margin: 0.5rem 0.5rem 0.5rem 1rem;
+    font-size: 0.8rem;
+}
+
+
+
+.clan-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+}
+
+.members-content {
+    display: flex;
+    align-items: center;
+    margin-right: 0.25rem;
+}
+
+.members-content img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.trophies-content {
+    display: flex;
+    align-items: center;
+}
+
+.trophies-content img {
+    width: 1.5rem;
+    height: 1.5rem;
+
+}
+
+
+
+#clanForm {
+    margin-top: 0.5rem;
+    margin-right: 0.3rem;
+    margin-left: 2rem;
+}
+
+#btn-submit {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.5rem;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom, #007bff, #0056b3);
+    box-shadow: 0 3px #003974;
+    text-shadow: 0 1px #003974;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+}
+
+.clan-info {
+    display: flex;
+    flex-direction: center;
+    justify-content: space-between;
+
+}
+
+.members,
+.trophies {
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem 1rem;
+    color: white;
+    background-color: #ACB7CB;
+    width: 3rem;
+    height: 1.4rem;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px #888888;
+}
+
+
+@media screen and (max-width: 1100px) {
+    .app-container {
+        padding: 15vw 10vw;
+    }
+
+    #search-clan {
+        padding: 0.5rem 2.5rem;
+    }
+
+    .clan-info h2 {
+        margin: 0.5rem 0.5rem 0.5rem 1rem;
+        font-size: 1rem;
+    }
+
+    .members,
+    .trophies {
+        margin: 0.5rem 0.5rem;
+    }
+
+
+}
+
+@media screen and (max-width: 768px) {
+    .app-container {
+        padding: 15vw 5vw;
+    }
+
+    #search-clan {
+        padding: 0.5rem 2.5rem;
+    }
+
+    .clan-info h2 {
+        margin: 0.5rem 0.5rem 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .members,
+    .trophies {
+        margin: 0.5rem 0.5rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .app-container {
+        padding: 15vw 10vw;
+    }
+
+    .titre-content h1 {
+        font-size: 0.8rem;
+    }
+
+    #search-clan {
+        padding: 0.5rem 2rem;
+    }
+
+    #search-button {
+        padding: 0.5rem 1rem;
+    }
+
+    .clan-info h2 {
+        margin: 0.5rem;
+        ;
+        font-size: 0.6rem;
+    }
+
+    .members,
+    .trophies {
+        margin: 0.5rem 0.5rem;
+    }
+}

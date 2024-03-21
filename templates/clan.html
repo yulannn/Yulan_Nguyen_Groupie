@@ -1,0 +1,136 @@
+{{define "clan"}}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/member.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var memberItems = document.querySelectorAll('.members-liste');
+
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/player';
+
+            var hiddenField = document.createElement('input');
+            hiddenField.type = 'hidden';
+            hiddenField.name = 'tag';
+            form.appendChild(hiddenField);
+
+            document.body.appendChild(form);
+
+            memberItems.forEach(function (member) {
+                member.addEventListener('click', function () {
+                    var memberId = member.getAttribute('data-id');
+                    hiddenField.value = memberId;
+
+                    form.submit();
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+
+    <!-- Infos clan -->
+    <div class="container">
+        <div id="btn-croix">
+            <span></span>
+            <span id="test"></span>
+            <span></span>
+        </div>
+        <div class="background-opacity"></div>
+        <h1>Clan</h1>
+        <div class="header-content">
+            <div class="top-header">
+                <div class="header-left">
+                    <div class="logo-clan">
+                        <img id="logo" src="" alt="">
+                    </div>
+                    <div class="back-trophies">
+                        <img src="/static/images/trophe.png" alt="">
+                        <div class="header-trophies">
+                            <div class="white-effect"></div>
+                            <p>{{.ClanWarTrophies}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="clan-title">
+                        <h2>{{.Name}}</h2>
+                        <p>{{.Description}}</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="header-clan-info">
+                <div class="origin">
+                    <p>Origine</p>
+                    <p>{{.Location.Name}}</p>
+                </div>
+                <div class="requiered-trophies">
+                    <p>Trophées nécessaires</p>
+                    <p>{{.RequiredTrophies}}</p>
+                </div>
+                <div class="donnation">
+                    <p>Dons hebdomadaires</p>
+                    <p>{{.DonationsPerWeek}}</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="bottom-content">
+            <div class="members-numbers">
+                <p>Membres</p>
+                <p>{{.Members}}/50</p>
+            </div>
+            {{range .MemberList}}
+            <div class="members-liste" data-id="{{.Tag}}">
+                <div class="background-style"></div>
+                <div class="left-members">
+                    <div class="position">
+                        <p>{{.ClanRank}}</p>
+                    </div>
+                    <img src="/static/images/icon.png" alt="">
+                    <p id="joueur">{{.Name}}</p>
+                </div>
+                <div class="right-members">
+                    <img src="/static/images/yellow.png" alt="">
+                    <div class="trophies-back">
+                        <p>{{.Trophies}}</p>
+                    </div>
+                </div>
+            </div>
+            {{end}}
+        </div>
+
+
+    </div>
+    <script>
+        function changeBannerImage() {
+            var randomNumber = Math.floor(Math.random() * 5) + 1;
+            var image = document.getElementById('logo');
+            image.src = '/static/images/banniere' + randomNumber + '.png';
+            console.log('New image src: ' + image.src);
+        }
+        changeBannerImage();
+
+        const btnCroix = document.getElementById('btn-croix');
+
+        btnCroix.addEventListener('click', () => {
+            window.history.back();
+        })
+
+
+    </script>
+</body>
+
+</body>
+
+</html>
+{{end}}

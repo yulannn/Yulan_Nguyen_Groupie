@@ -1,0 +1,235 @@
+@font-face {
+    font-family: 'MedievalSharp';
+    src: url('../font/MedievalSharp.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(/static/images/fond_bleu.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'MedievalSharp', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.info-joueur-content {
+    background-color: rgba(59, 41, 145, 0.8);
+    width: 80%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    border-radius: 10px;
+}
+
+.info-joueur-name {
+    text-align: center;
+    font-size: 0.5rem;
+    color: white;
+    margin-top: 2rem;
+}
+
+.info-joueur-description {
+    border-top: 3px solid yellow;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-bottom: 3px solid rgb(15, 158, 229);
+}
+
+.voie-trophies {
+    padding-top: 0.5rem;
+    color: yellow;
+}
+
+.arena-trophies {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 3px solid purple;
+    padding-bottom: 1rem;
+}
+
+.xp-trophies {
+    position: relative;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 40%;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    background-color: rgba(11, 2, 58, 0.8);
+    border-radius: 5px;
+}
+
+.back-trophies {
+    z-index: 1;
+}
+
+.xp-trophies img {
+    position: absolute;
+    top: 13%;
+    right: 40%;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+}
+
+.xp-trophies p {
+    z-index: 2;
+}
+
+.arena-img p {
+    z-index: 2;
+}
+
+.arena-img {
+    position: relative;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 40%;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    background-color: rgba(11, 2, 58, 0.8);
+    border-radius: 5px;
+}
+
+.number-win {
+    text-align: center;
+    color: white;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    padding: 0.5rem;
+    margin: 1rem;
+    background-color: rgba(11, 2, 58, 0.8);
+    border-radius: 5px;
+}
+
+.number-win p {
+    z-index: 2;
+}
+
+.background-opacity {
+    position: absolute;
+    border-radius: 5px 5px 0 0;
+    top: 8%;
+    width: 95%;
+    height: 50%;
+    background-color: rgba(11, 29, 89, 0.8);
+}
+
+.badges-container {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.badges-title {
+    color: white;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.badges-liste {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.badges-liste img {
+    width: 100px;
+    height: 175px;
+    flex: 0 0 calc(25% - 1rem);
+}
+
+.decks-title {
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+}
+
+.decks-container {
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.3);
+
+}
+
+.decks-liste {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.decks-liste img {
+    width: 221px;
+    height: 264px;
+    flex: 0 0 calc(25% - 1rem);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+
+}
+
+@media (max-width: 800px) {
+    .decks-liste img {
+        flex: 0 0 calc(50% - 1rem);
+    }
+
+    .xp-trophies img {
+        position: absolute;
+        top: 13%;
+        right: 45%;
+        z-index: 1;
+        width: 30px;
+        height: 30px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .decks-liste img {
+        flex: 0 0 calc(100% - 1rem);
+    }
+}

@@ -1,0 +1,66 @@
+{{define "games"}}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Historique des parties</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/games.css">
+</head>
+
+<body>
+    <h1>Historique des parties</h1>
+    <div id="btn-croix" style="position: relative;
+z-index: 2;
+top: -2%;
+right: -95%;
+width: 2rem;
+height: 2rem;
+background-color: red;
+border-radius: 10px;
+cursor: pointer;">
+        <span id="first-span" style="z-index: 3;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1.25rem;
+    height: 5px;
+    background-color: white;
+    transform: translate(-50%, -50%) rotate(45deg);"></span>
+        <span id="test" style="z-index: 2;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 1.8rem;
+    height: 1.1rem;
+    background-color: tomato;
+    border-radius: 10px 10px 0 0;"></span>
+        <span id="last-span" style="z-index: 3;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1.25rem;
+    height: 5px;
+    background-color: white;
+    transform: translate(-50%, -50%) rotate(-45deg);"></span>
+    </div>
+    {{range .}}
+    <div class="match {{if gt (index .Team 0).TrophyChange 0}}positive{{else}}negative{{end}}">
+        {{if eq .Type "PvP"}}
+        <h2>{{(index .Team 0).Name}} {{(index .Team 0).Crowns}} - {{(index .Opponent 0).Crowns}} {{(index .Opponent
+            0).Name}}</h2>
+        <h3>{{(index .Team 0).TrophyChange}}</h3>
+        {{end}}
+    </div>
+    {{end}}
+
+    <script>
+        const btnCroix = document.getElementById('btn-croix');
+
+        btnCroix.addEventListener('click', () => {
+            window.history.back();
+        })
+    </script>
+</body>
+
+</html>
+{{end}}

@@ -1,0 +1,63 @@
+{{ define "loading" }}
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Bar Example</title>
+    <link rel="stylesheet" href="/static/css/loading.css">
+</head>
+
+<body>
+<div class="img-container">
+    <img src="/static/images/hdtitle.png" alt="">
+</div>
+<div class="random-text">
+    <p id="random-text"></p>
+</div>
+<div class="loader-container">
+    <div class="loader-bar" id="loaderBar"></div>
+    <div class="loader-text" id="loaderText">0%</div>
+</div>
+
+<script>
+    const randomtext = "Attiré les ennemis dans votre coté de l'arene pour pouvoir les attaqués !";
+    const randomtext2 = "Deux rois se font face un seul survivra !";
+    const randomtext3 = "Le livre utime est l'objet magique le plus puissant de tous !";
+    const randomtext4 = "Le niveau maximum lors des défis est de 11 !";
+    const randomtext5 = "Les tâches de maitrise vous permettent de gagner des gemmes !";
+
+    const randomtextarray = [randomtext, randomtext2, randomtext3, randomtext4, randomtext5];
+
+    const randomIndex = Math.floor(Math.random() * randomtextarray.length);
+    const random = randomtextarray[randomIndex];
+
+    const randomTextElement = document.getElementById('random-text');
+    randomTextElement.innerHTML = random;
+
+
+    function updateLoadingBar(percent) {
+        var bar = document.getElementById('loaderBar');
+        var text = document.getElementById('loaderText');
+
+        bar.style.width = percent + '%';
+        text.textContent = percent + '%';
+
+        if (percent < 100) {
+            setTimeout(function () {
+                updateLoadingBar(percent + 1);
+            }, 40);
+        } else {
+            window.location.href = "/accueil";
+        }
+    }
+
+    updateLoadingBar(0);
+
+</script>
+
+</body>
+
+
+</html>
+{{ end }}

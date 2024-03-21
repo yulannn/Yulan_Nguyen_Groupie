@@ -1,0 +1,118 @@
+{{define "player"}}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/player.css">
+</head>
+
+<body>
+    <div class="info-joueur-content">
+        <div id="btn-croix" style="position: relative;
+        z-index: 2;
+        top: 20;
+        right: -45%;
+        width: 2rem;
+        height: 2rem;
+        background-color: red;
+        border-radius: 10px;
+        cursor: pointer;">
+            <span id="first-span" style="z-index: 3;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 1.25rem;
+            height: 5px;
+            background-color: white;
+            transform: translate(-50%, -50%) rotate(45deg);"></span>
+            <span id="test" style="z-index: 2;
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            width: 1.8rem;
+            height: 1.1rem;
+            background-color: tomato;
+            border-radius: 10px 10px 0 0;"></span>
+            <span id="last-span" style="z-index: 3;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 1.25rem;
+            height: 5px;
+            background-color: white;
+            transform: translate(-50%, -50%) rotate(-45deg);"></span>
+        </div>
+        <div class="info-joueur-name">
+            <h1>{{.Name}}</h1>
+            <p>{{.Tag}}</p>
+        </div>
+
+        <div class="info-joueur-description">
+            <div class="voie-trophies">
+                <p>Voie des trophées</p>
+            </div>
+            <div class="arena-trophies">
+                <div class="xp-trophies">
+                    <div class="background-opacity"></div>
+                    <p>{{.ExpLevel}}</p>
+                    <div class="back-trophies">
+                        <img src="/static/images/yellow.png" alt="">
+                        <p>{{.Trophies}}</p>
+                    </div>
+
+                </div>
+                <div class="arena-img">
+                    <div class="background-opacity"></div>
+                    <img src="" alt="">
+                    <p>{{.Arena.Name}}</p>
+                </div>
+            </div>
+            <div class="number-win">
+                <div class="background-opacity"></div>
+                <p>Combats gagnés</p>
+                <p>{{.Wins}}</p>
+            </div>
+        </div>
+
+        <a href="/chests?tag={{.Tag}}">Voir les prochains coffres</a>
+        <a href="/games?tag={{.Tag}}">Historique de combat</a>
+
+        <div class="badges-container">
+            <div class="badges-title">
+                <p>Badges</p>
+            </div>
+
+            <div class="badges-liste">
+                {{range .Badges}}
+                <img src="{{.IconUrls.Large}}" alt="Image du badge">
+                {{end}}
+            </div>
+        </div>
+
+        <div class="decks-container">
+            <div class="decks-title">
+                <p>Decks</p>
+            </div>
+            <div class="decks-liste">
+                {{range .CurrentDeck}}
+                <img src="{{.IconUrls.Medium}}" alt="Image de la carte">
+                {{end}}
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const btnCroix = document.getElementById('btn-croix');
+
+        btnCroix.addEventListener('click', () => {
+            window.history.back();
+        })
+    </script>
+
+
+</body>
+
+</html>
+{{end}}

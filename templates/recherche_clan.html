@@ -1,0 +1,251 @@
+{{define "searchclan"}}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/css/clan.css">
+</head>
+
+<body>
+    <!-- Affichage des clans -->
+    <div class="app-container">
+        <div id="testA" style="position: relative;
+        z-index: 2;
+        top: 40;
+        right: -90%;
+        width: 2rem;
+        height: 2rem;
+        background-color: red;
+        border-radius: 10px;
+        cursor: pointer;">
+            <span id="first-span" style="z-index: 3;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 1.25rem;
+            height: 5px;
+            background-color: white;
+            transform: translate(-50%, -50%) rotate(45deg);"></span>
+            <span id="test" style="z-index: 2;
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            width: 1.8rem;
+            height: 1.1rem;
+            background-color: tomato;
+            border-radius: 10px 10px 0 0;"></span>
+            <span id="last-span" style="z-index: 3;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 1.25rem;
+            height: 5px;
+            background-color: white;
+            transform: translate(-50%, -50%) rotate(-45deg);"></span>
+        </div>
+        <header class="app-header">
+            <div class="titre-content">
+                <div class="title-white"></div>
+                <h1>Trouvez un nouveau clan !</h1>
+            </div>
+            <form action="/search_clan" method="GET">
+                <div class="search-container">
+                    <input name="nom" type="text" id="search-clan" value="{{.Nom}}" placeholder="Nom du clan...">
+                    <button type="submit" id="search-button">Chercher</button>
+                </div>
+                <button id="filtre" type="button">Filtres</button>
+                <div class="filter-panel" id="filter-panel">
+                    <h3>Filtres</h3>
+                    <div class="member-filter">
+                        <div class="filter-control">
+                            <div class="left-filter">
+                                <label>membres</label>
+                            </div>
+                            <div class="right-filter">
+                                <div class="left-btn">
+                                    <button type="button" id="decrease-min">-</button>
+                                    <input type="number" name="min-members" id="min-members" readonly
+                                        value="{{.MinMembers}}">
+                                    <button type="button" id="increase-min">+</button>
+                                </div>
+                                <div class="right-btn">
+                                    <button type="button" id="decrease-max">-</button>
+                                    <input type="number" name="max-members" id="max-members" readonly
+                                        value="{{.MaxMembers}}">
+                                    <button type="button" id="increase-max">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trophies-filter">
+                        <div class="left-trophies-filter">
+                            <label>Minimum Trophées</label>
+                        </div>
+                        <div class="right-trophies-filter">
+                            <button type="button" id="decrease-trophies">-</button>
+                            <input type="number" name="min-trophies" id="min-trophies" readonly
+                                value="{{.MinTrophies}}">
+                            <button type="button" id="increase-trophies">+</button>
+                        </div>
+                    </div>
+                    <div class="location-filter">
+                        <div class="left-location-filter">
+                            <label>Localisation</label>
+                        </div>
+                        <div class="right-location-filter">
+                            <select name="location" id="location">
+                                <option value="fr">France</option>
+                                <option value="us">USA</option>
+                                <option value="uk">UK</option>
+                                <option value="de">Allemagne</option>
+                                <option value="es">Espagne</option>
+                                <option value="it">Italie</option>
+                                <option value="br">Brésil</option>
+                                <option value="tr">Turquie</option>
+                                <option value="ru">Russie</option>
+                                <option value="in">Inde</option>
+                                <option value="ca">Canada</option>
+                                <option value="au">Australie</option>
+                                <option value="jp">Japon</option>
+                                <option value="cn">Chine</option>
+                                <option value="kr">Corée du Sud</option>
+                                <option value="hk">Hong Kong</option>
+                                <option value="tw">Taïwan</option>
+                                <option value="sg">Singapour</option>
+                                <option value="my">Malaisie</option>
+                                <option value="id">Indonésie</option>
+                                <option value="th">Thaïlande</option>
+                                <option value="ph">Philippines</option>
+                                <option value="vn">Vietnam</option>
+                                <option value="ae">Émirats arabes unis</option>
+                                <option value="sa">Arabie saoudite</option>
+                                <option value="qa">Qatar</option>
+                                <option value="bh">Bahreïn</option>
+                                <option value="kw">Koweït</option>
+                                <option value="om">Oman</option>
+                                <option value="eg">Égypte</option>
+                                <option value="za">Afrique du Sud</option>
+                                <option value="mx">Mexique</option>
+                                <option value="ar">Argentine</option>
+                                <option value="cl">Chili</option>
+                                <option value="co">Colombie</option>
+                                <option value="pe">Pérou</option>
+                            </select>
+                        </div>
+                    </div>
+            </form>
+
+
+        </header>
+        <div class="liste-container">
+            {{range .Clans}}
+            <div class="clan-list">
+                <div class="clan-item">
+                    <div class="background-white">
+                        <div class="clan-info">
+                            <h2>{{.Name}}</h2>
+                            <div class="clan-details">
+                                <div class="members-content">
+                                    <img src="/static/images/icon.png" alt="">
+                                    <span class="members">{{.Members}}/50</span>
+                                </div>
+                                <div class="trophies-content">
+                                    <img src="/static/images/trophe.png" alt="">
+                                    <span class="trophies"> {{.ClanWarTrophies}}</span>
+                                </div>
+                                <form id="clanForm" action="/clan" method="POST">
+                                    <input type="hidden" name="tag" value={{.Tag}}>
+                                    <button id="btn-submit" type="submit">Voir</button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{end}}
+            <div class="page-button">
+                <a class="page-link"
+                    href="/search_clan?page={{.PagePrev}}&nom={{.Nom}}&min-members={{.MinMembers}}&max-members={{.MaxMembers}}">précedent</a>
+                <a class="page-link"
+                    href="/search_clan?page={{.PageNext}}&nom={{.Nom}}&min-members={{.MinMembers}}&max-members={{.MaxMembers}}">suivant</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const filterButton = document.getElementById('filter-button');
+        const filterPanel = document.getElementById('filter-panel');
+        const btnCroix = document.getElementById('testA');
+        const container = document.getElementsByClassName('liste-container')[0];
+        const filtreBtn = document.getElementById('filtre');
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const minTrophiesInput = document.getElementById('min-trophies');
+            const increaseTrophiesButton = document.getElementById('increase-trophies');
+            const decreaseTrophiesButton = document.getElementById('decrease-trophies');
+
+            minTrophiesInput.value = 0;
+
+            increaseTrophiesButton.addEventListener('click', function () {
+                let currentValue = parseInt(minTrophiesInput.value);
+                minTrophiesInput.value = currentValue + 200;
+            });
+
+            decreaseTrophiesButton.addEventListener('click', function () {
+                let currentValue = parseInt(minTrophiesInput.value);
+                if (currentValue >= 200) {
+                    minTrophiesInput.value = currentValue - 200;
+                }
+            });
+        });
+
+        filtreBtn.addEventListener('click', () => {
+            filterPanel.style.display = filterPanel.style.display === 'none' ? 'block' : 'none';
+            container.style.marginTop = container.style.marginTop === '3rem' ? '18rem' : '3rem';
+            filterPanel.style.animation = "slideIn 0.5s ease-in-out";
+        })
+
+
+        document.getElementById('increase-min').addEventListener('click', function () {
+            var minValue = document.getElementById('min-members');
+            if (parseInt(minValue.value) < parseInt(document.getElementById('max-members').value)) {
+                minValue.value = parseInt(minValue.value) + 1;
+            }
+        });
+
+        document.getElementById('decrease-min').addEventListener('click', function () {
+            var minValue = document.getElementById('min-members');
+            if (minValue.value > 0) {
+                minValue.value = parseInt(minValue.value) - 1;
+            }
+        });
+
+        document.getElementById('increase-max').addEventListener('click', function () {
+            var maxValue = document.getElementById('max-members');
+            if (maxValue.value < 50) {
+                maxValue.value = parseInt(maxValue.value) + 1;
+            }
+        });
+
+        document.getElementById('decrease-max').addEventListener('click', function () {
+            var maxValue = document.getElementById('max-members');
+            var minValue = document.getElementById('min-members');
+            if (parseInt(maxValue.value) > parseInt(minValue.value)) {
+                maxValue.value = parseInt(maxValue.value) - 1;
+            }
+        });
+
+        btnCroix.addEventListener('click', () => {
+            console.log("btn add event listener")
+            window.location.href = "/accueil";
+        })
+
+
+    </script>
+
+</body>
+
+</html>
+{{end}}

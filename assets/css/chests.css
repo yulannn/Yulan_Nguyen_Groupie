@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'MedievalSharp', sans-serif;
+}
+
+body {
+    background-image: url(../images/fond_bleu.jpg);
+}
+
+@font-face {
+    font-family: 'MedievalSharp';
+    src: url('../font/MedievalSharp.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.coffre {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.coffre img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.coffre h2, .coffre h3 {
+    margin: 5px 0;
+    text-align: left;
+}
+
+
+.premiers-coffres {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    margin: 20px 100px 30px 100px;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.autres-coffres {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    margin: 20px 100px 30px 100px;
+    border-radius: 30px;
+    padding: 20px;
+}

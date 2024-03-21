@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'MedievalSharp', sans-serif;
+}
+
+body {
+    background-image: url(../images/fond_bleu.jpg);
+    background-attachment: fixed;
+}
+
+@font-face {
+    font-family: 'MedievalSharp';
+    src: url('../font/MedievalSharp.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
+.match.positive {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 255, 0, 0.5);
+    backdrop-filter: blur(10px);
+    margin: 20px 100px 30px 100px;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.match.negative {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    margin: 20px 100px 30px 100px;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.match.positive h2, .match.negative h2 {
+    color: white;
+    margin-right: auto;
+}
+
+.match.positive h3, .match.negative h3 {
+    color: white;
+    margin-left: auto;
+}

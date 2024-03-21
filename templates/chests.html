@@ -1,0 +1,105 @@
+{{define "chests"}}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prochains coffres</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/chests.css">
+    <script>
+        function updateImagesAndIndexes() {
+            var coffres = document.querySelectorAll('.coffre');
+            coffres.forEach(function (coffre, index) {
+                var name = coffre.querySelector('h2').textContent;
+                var img = coffre.querySelector('img');
+                img.src = getImagePath(name);
+
+                // Augmentation de l'index
+                var indexElement = coffre.querySelector('.index');
+                var currentIndex = parseInt(indexElement.textContent.match(/\d+/)[0], 10);
+                indexElement.textContent = 'Dans ' + (currentIndex + 1) + ' parties';
+            });
+        }
+
+        function getImagePath(name) {
+            return "/static/images/chests/" + name.toLowerCase().replace(/ /g, '_') + ".png";
+        }
+
+        window.onload = updateImagesAndIndexes;
+
+    </script>
+</head>
+
+<body>
+    <h1>PROCHAINS COFFRES</h1>
+    <div class="premiers-coffres">
+        <div id="btn-croix" style="position: relative;
+z-index: 2;
+top: 0;
+right: -95%;
+width: 2rem;
+height: 2rem;
+background-color: red;
+border-radius: 10px;
+cursor: pointer;">
+            <span id="first-span" style="z-index: 3;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1.25rem;
+    height: 5px;
+    background-color: white;
+    transform: translate(-50%, -50%) rotate(45deg);"></span>
+            <span id="test" style="z-index: 2;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 1.8rem;
+    height: 1.1rem;
+    background-color: tomato;
+    border-radius: 10px 10px 0 0;"></span>
+            <span id="last-span" style="z-index: 3;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1.25rem;
+    height: 5px;
+    background-color: white;
+    transform: translate(-50%, -50%) rotate(-45deg);"></span>
+        </div>
+        {{range $index, $element := .Items}}
+        {{if lt $index 9}}
+        <div class="coffre">
+            <img src="" alt="Image de {{$element.Name}}">
+            <div class="text-container">
+                <h2>{{$element.Name}}</h2>
+                <h3 class="index">Dans {{$element.Index}} parties</h3>
+            </div>
+        </div>
+        {{end}}
+        {{end}}
+    </div>
+    <h1>COFFRES SPÉCIAUX</h1>
+    <div class="autres-coffres">
+        {{range $index, $element := .Items}}
+        {{if ge $index 9}}
+        <div class="coffre">
+            <img src="" alt="Image de {{$element.Name}}">
+            <div class="text-container">
+                <h2>{{$element.Name}}</h2>
+                <h3 class="index">Dans {{$element.Index}} parties</h3>
+            </div>
+        </div>
+        {{end}}
+        {{end}}
+    </div>
+    <script>
+        const btnCroix = document.getElementById('btn-croix');
+
+        btnCroix.addEventListener('click', () => {
+            window.history.back();
+        })
+    </script>
+</body>
+
+</html>
+{{end}}

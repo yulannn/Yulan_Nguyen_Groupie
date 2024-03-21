@@ -1,0 +1,423 @@
+@font-face {
+    font-family: 'MedievalSharp';
+    src: url('../font/MedievalSharp.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: url(/static/images/fondcr.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'MedievalSharp', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15vh;
+    margin-bottom: 10vh;
+    background-color: #636A7C;
+    width: 80vw;
+    border-radius: 10px;
+}
+
+.background-opacity {
+    position: absolute;
+    top: 0.2rem;
+    width: 98.5%;
+    height: 1rem;
+    background-color: #737A8A;
+    border-radius: 10px 10px 0 0;
+    z-index: 0;
+}
+
+h1 {
+    z-index: 1;
+}
+
+.header-content {
+    margin-top: 2%;
+    background-color: #E9F3FD;
+    width: 95%;
+    border-radius: 10px;
+}
+
+.top-header {
+    display: flex;
+    height: 8rem;
+    font-size: 0.5rem;
+}
+
+.header-left {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E9F3FD;
+    width: 30%;
+    height: 100%;
+    border-radius: 10px 0 0 0;
+}
+
+.header-left #logo {
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5rem;
+    height: 5rem;
+}
+
+.back-trophies {
+    position: absolute;
+    bottom: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-trophies img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.3rem;
+}
+
+.white-effect {
+    border-radius: 5px 5px 0 0;
+    position: absolute;
+    top: 0;
+    width: 99%;
+    height: 50%;
+    background-color: #BFCCE2;
+    opacity: 0.5;
+
+}
+
+
+.header-trophies {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #A4B6D2;
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    border: 0.5px solid black;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #E9F3FD;
+    width: 70%;
+    height: 100%;
+    border-radius: 0 10px 10px 0;
+}
+
+
+.clan-title {
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+
+
+
+.header-clan-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    border-radius: 0 0 10px 10px;
+    font-size: 0.8rem;
+}
+
+.origin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom, #007DC5, #00AEFE);
+    width: 33%;
+    height: 100%;
+    border-radius: 0 0 0 10px;
+    border-right: 2px solid #2A6CBB;
+}
+
+
+.requiered-trophies {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom, #007DC5, #00AEFE);
+    width: 33.5%;
+    height: 100%;
+    border-right: 2px solid #2A6CBB;
+}
+
+
+.donnation {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom, #007DC5, #00AEFE);
+    width: 33.5%;
+    height: 100%;
+    border-radius: 0 0 10px 0;
+}
+
+
+
+.bottom-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #A1B3CD;
+    width: 95%;
+    padding-top: 6rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: 100%;
+}
+
+.members-numbers {
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #E9F3FD;
+    width: 100%;
+    height: 4rem;
+    border-radius: 10px 10px 0 0;
+}
+
+.members-liste {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #C9D6EC;
+    width: 90%;
+    height: 2.5rem;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin: 0.3rem;
+}
+
+.background-style {
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    width: 99%;
+    height: 50%;
+    background-color: #DDE7F4;
+    border-radius: 5px;
+
+}
+
+.left-members {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 1;
+}
+
+
+.position {
+    position: absolute;
+    left: 2%;
+    background-color: #A1B3CD;
+    border-radius: 5px;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid black;
+}
+
+.right-members {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 1;
+}
+
+
+.left-members img {
+    position: absolute;
+    left: 15%;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.right-members img {
+    position: absolute;
+    right: 15%;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+}
+
+.trophies-back {
+    position: absolute;
+    right: 5%;
+}
+
+div #btn-croix {
+    position: relative;
+    z-index: 2;
+    top: 40;
+    right: -45%;
+    width: 2rem;
+    height: 2rem;
+    background-color: red;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+div span:first-child {
+    z-index: 3;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1.25rem;
+    height: 5px;
+    background-color: white;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+div span:last-child {
+    z-index: 3;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1.25rem;
+    height: 5px;
+    background-color: white;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+#test {
+    z-index: 2;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 1.8rem;
+    height: 1.1rem;
+    background-color: tomato;
+    border-radius: 10px 10px 0 0;
+
+}
+
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90vw;
+    }
+
+    .header-left {
+        width: 40%;
+    }
+
+    .header-right {
+        width: 60%;
+    }
+
+    .origin {
+        width: 50%;
+    }
+
+    .requiered-trophies {
+        width: 50%;
+    }
+
+    .donnation {
+        width: 50%;
+    }
+
+    .members-liste {
+        width: 95%;
+        font-size: 0.8rem;
+    }
+
+    .left-members img {
+        left: 10%;
+    }
+
+    .right-members img {
+        right: 10%;
+        margin-right: 2rem;
+    }
+
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        width: 95vw;
+    }
+
+    .header-left {
+        width: 50%;
+    }
+
+    .header-right {
+        width: 50%;
+    }
+
+    .origin {
+        width: 50%;
+    }
+
+    .requiered-trophies {
+        width: 50%;
+    }
+
+    .donnation {
+        width: 50%;
+    }
+
+    .members-liste {
+        width: 100%;
+    }
+
+    .left-members img {
+        left: 10%;
+    }
+
+    .right-members img {
+        right: 10%;
+    }
+
+}
