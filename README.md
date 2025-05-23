@@ -2,8 +2,8 @@ Pour faire fonctionné le programme il faut générer a la main le token via le 
 
 https://developer.clashroyale.com/#/login
 
-email: groupietracker83@gmail.com
-mdp: Groupietracker83
+
+
 
 Une fois sur le site et connecté il faut aller sur "my account" et "create a new key" ,
 
